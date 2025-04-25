@@ -14,7 +14,7 @@
     <h2>Options</h2>
     {% for option in options %}
         <div class="option">
-            <h3>{{ option.name }}</h3>
+            <p>Option {{ option.id }} : {{ option.name }}</p>
         </div>
     {% endfor %}
     <a href="{{ url_for('add_option') }}" class="button">Add Option</a>
