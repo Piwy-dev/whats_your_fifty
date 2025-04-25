@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_option.css') }}">
+    <title>Add Participant</title>
+</head>
+<body>
+    <h1>Add a new participant</h1>
+    <form action="/add-participant" method="POST">
+        <label for="participant-name">Participant Name:</label>
+        <input type="text" id="participant-name" name="participant_name" placeholder="Enter participant name" required maxlength="50">
+        <button type="submit">Add participant</button>
+    </form>
+</body>
+</html>

@@ -17,13 +17,10 @@
             <p>Option {{ option.id }} : {{ option.name }}</p>
         </div>
     {% endfor %}
-    <a href="{{ url_for('add_option') }}" class="button">Add Option</a>
+    <a href="{{ url_for('add_option') }}" class="add-option-button">Add Option</a>
     {% for participant in participants %}
         <div class="participant">
-            <h3>{{ participant.name }}</h3>
-            <p>{{ participant.description }}</p>
-            <a href="{{ url_for('edit_participant', participant_id=participant.id) }}" class="button">Edit</a>
-            <a href="{{ url_for('delete_participant', participant_id=participant.id) }}" class="button">Delete</a>
+            <p>Participant {{ participant.id }} : {{ participant.name }}</p>
         </div>
     {% endfor %}
-    <a href="#" class="button">Add Participant</a>
+    <a href="{{ url_for('add_participant') }}" class="add-participant-button">Add Participant</a>
