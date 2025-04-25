@@ -11,11 +11,22 @@
 </head>
 <body>
     <h1>What's Your Fifty</h1>
-    <a href="#" class="button">Add Option</a>
+    {% for option in options %}
+        <div class="option">
+            <h2>{{ option.name }}</h2>
+            <p>{{ option.description }}</p>
+            <p>Participants: {{ option.participants }}</p>
+            <a href="{{ url_for('edit_option', option_id=option.id) }}" class="button">Edit</a>
+            <a href="{{ url_for('delete_option', option_id=option.id) }}" class="button">Delete</a>
+        </div>
+    {% endfor %}
+    <a href="{{ url_for('add_option') }}" class="button">Add Option</a>
+    {% for participant in participants %}
+        <div class="participant">
+            <h3>{{ participant.name }}</h3>
+            <p>{{ participant.description }}</p>
+            <a href="{{ url_for('edit_participant', participant_id=participant.id) }}" class="button">Edit</a>
+            <a href="{{ url_for('delete_participant', participant_id=participant.id) }}" class="button">Delete</a>
+        </div>
+    {% endfor %}
     <a href="#" class="button">Add Participant</a>
-    <h2>Functions</h2>
-    <ul>
-        <li>Function 1: Description of function 1</li>
-        <li>Function 2: Description of function 2</li>
-        <li>Function 3: Description of function 3</li>
-        <li>Function 4:

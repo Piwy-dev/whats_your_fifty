@@ -25,5 +25,9 @@ def create_app(test_config=None):
     @app.route('/')
     def home():
         return render_template('home.html')
+    
+    @app.route('/add-option')
+    def add_option():
+        return render_template('add_option.html')
 
     return app
