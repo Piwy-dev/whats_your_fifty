@@ -17,13 +17,19 @@
     {% endif %}
     {% for option in options %}
         <div class="option">
-            <p>Option {{ option.id }} : {{ option.name }}</p>
+            <p>Option {{ loop.index }} : {{ option.name }}</p>
         </div>
     {% endfor %}
     <a href="{{ url_for('add_option') }}" class="add-option-button">Add Option</a>
+    <h2>Participants</h2>
+    {% if participants %}
+        <button onclick="clearAllParticipants()" class="clear-all-button">Clear All</button>
+    {% else %}
+        <p>No participants available. Please add some.</p>
+    {% endif %}
     {% for participant in participants %}
         <div class="participant">
-            <p>Participant {{ participant.id }} : {{ participant.name }}</p>
+            <p>Participant {{ loop.index }} : {{ participant.name }}</p>
         </div>
     {% endfor %}
     <a href="{{ url_for('add_participant') }}" class="add-participant-button">Add Participant</a>

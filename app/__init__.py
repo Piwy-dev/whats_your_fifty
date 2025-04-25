@@ -53,5 +53,10 @@ def create_app():
     def delete_all_options():
         odb.delete_all_options()
         return redirect('/')
+    
+    @app.route('/delete-all-participants')
+    def delete_all_participants():
+        pdb.delete_all_participants()
+        return redirect('/')
 
     return app
