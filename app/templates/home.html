@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="{{ url_for('static', filename='js/home.js') }}" defer></script>
     <title>What's Your Fifty</title>
-    <style>
-        
-    </style>
 </head>
 <body>
     <h1>What's Your Fifty</h1>
     <h2>Options</h2>
+    {% if options %}
+        <button onclick="clearAllOptions()" class="clear-all-button">Clear All</button>
+    {% else %}
+        <p>No options available. Please add some.</p>
+    {% endif %}
     {% for option in options %}
         <div class="option">
             <p>Option {{ option.id }} : {{ option.name }}</p>

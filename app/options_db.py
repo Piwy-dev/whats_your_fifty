@@ -23,3 +23,26 @@ def get_all_options():
     options = cursor.fetchall()
     cursor.close()
     return options
+
+def delete_all_options():
+    """
+    Delete all options from the database.
+    """
+    db = database.get_db()
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM options")
+    db.commit()
+    cursor.close()
+    
+def delete_option(option_id):
+    """
+    Delete an option from the database by its ID.
+    
+    Args:
+        option_id (int): The ID of the option to delete.
+    """
+    db = database.get_db()
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM options WHERE id = ?", (option_id,))
+    db.commit()
+    cursor.close()

@@ -3,8 +3,32 @@ body {
     margin: 20px;
 }
 
-.add-option-button {
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
     display: inline-block;
+}
+
+.clear-all-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-all-button:hover {
+    background-color: #a71d2a;
+}
+
+.add-option-button {
+    display: block;
     margin: 10px 0 20px 0;
     padding: 10px 20px;
     background-color: #007BFF;
@@ -12,16 +36,11 @@ body {
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
+    width: 200px;
 }
 
 .add-option-button:hover {
     background-color: #0056b3;
-}
-
-h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
 }
 
 .option {

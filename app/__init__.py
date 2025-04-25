@@ -27,6 +27,7 @@ def create_app():
     @app.route('/')
     def home():
         options = odb.get_all_options()
+        print("Options:", options)
         participants = pdb.get_all_participants()
         return render_template('home.html', options=options, participants=participants)
     
@@ -47,5 +48,10 @@ def create_app():
             return redirect('/')
         elif request.method == 'GET':
             return render_template('add_participant.html')
+        
+    @app.route('/delete-all-options')
+    def delete_all_options():
+        odb.delete_all_options()
+        return redirect('/')
 
     return app
