@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import app.database as db
+import app.options_db as odb
 
 def create_app():
     # create and configure the app
@@ -24,14 +25,16 @@ def create_app():
     
     @app.route('/')
     def home():
-        return render_template('home.html')
+        options = odb.get_all_options()
+        print(options)
+        return render_template('home.html', options=options)
     
     @app.route('/add-option', methods=['GET', 'POST'])
     def add_option():
         if request.method == 'POST':
             option = request.form.get('option_name')
-            print(f"Option added: {option}")
-            return render_template('add_option.html', success=True, option=option)
+            odb.add_option(option)
+            return redirect('/')
         elif request.method == 'GET':
             return render_template('add_option.html')
 
