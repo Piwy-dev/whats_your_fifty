@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>What's Your Fifty</h1>
+
     <h2>Options</h2>
     {% if options %}
         <button onclick="clearAllOptions()" class="clear-all-button">Clear All</button>
@@ -21,6 +22,7 @@
         </div>
     {% endfor %}
     <a href="{{ url_for('add_option') }}" class="add-option-button">Add Option</a>
+
     <h2>Participants</h2>
     {% if participants %}
         <button onclick="clearAllParticipants()" class="clear-all-button">Clear All</button>
@@ -33,3 +35,9 @@
         </div>
     {% endfor %}
     <a href="{{ url_for('add_participant') }}" class="add-participant-button">Add Participant</a>
+
+    <div>
+        <a href="{{ url_for('start_choices') }}" class="start-choices-button">Start choices</a>
+    </div>
+</body>
+</html>

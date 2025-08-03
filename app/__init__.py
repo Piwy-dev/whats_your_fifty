@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 import app.database as db
 import app.options_db as odb
 import app.participants_db as pdb
+import app.results as res
 
 def create_app():
     # create and configure the app
@@ -58,5 +59,11 @@ def create_app():
     def delete_all_participants():
         pdb.delete_all_participants()
         return redirect('/')
+    
+    @app.route('/start-choices')
+    def start_choices():
+        options = odb.get_all_options()
+        participants = pdb.get_all_participants()
+        return render_template('choices.html', options=options, participants=participants)
 
     return app
